@@ -24,7 +24,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -45,13 +44,6 @@
           "options": {
             "browserTarget": "example:build"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [],
-            "exclude": []
-          }
         }
       }
     },
@@ -61,11 +53,10 @@
       "projectType": "application"
     }
   },
-  "defaultProject": "example",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "",
-      "styleext": "css"
+      "style": "css"
     },
     "@schematics/angular:directive": {
       "prefix": ""
