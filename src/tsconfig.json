@@ -6,7 +6,7 @@
     "rootDir": ".",
     "removeComments": true,
     "outDir": "../dist",
-    "target": "es5",
+    "target": "es2020",
     "module": "commonjs",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
@@ -17,9 +17,8 @@
     "declaration": true,
     "skipLibCheck": true,
     "stripInternal": true,
-    "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "lib": ["dom", "es2015"]
+    "lib": ["dom", "es2020"]
   },
   "exclude": [
     "**/node_modules",

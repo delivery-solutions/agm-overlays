@@ -1,13 +1,13 @@
 {
-  "name": "agm-overlays",
-  "version": "2.0.0",
+  "name": "@deliverysolutions/agm-overlays",
+  "version": "1.0.0",
   "description": "Custom marker overlay for the @agm/core package",
   "main": "dist/index",
   "scripts": {
     "build": "npm-run-all build:dist:js update:dist build:example",
-    "build:dist:js": "ng-packagr -p package.json",
+    "build:dist:js": "ng-packagr -p ng-package.json",
     "update:dist": "node scripts/update-dist-package.js",
-    "build:example": "ng build example --prod",
+    "build:example": "ng build example --configuration=production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run watch",
     "watch": "ng serve example --port 4202 --open"
