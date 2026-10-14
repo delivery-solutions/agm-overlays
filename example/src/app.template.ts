@@ -20,8 +20,8 @@ export const template =
       <agm-map
         [zoom] = "14"
         style  = "height:100%;width:100%;display:block;"
-        [latitude]  = "latLngArray.length ? latLngArray[0].latitude : null"
-        [longitude] = "latLngArray.length ? latLngArray[0].longitude : null"
+        [latitude]  = "latLngArray.length ? latLngArray[0].latitude : $any(null)"
+        [longitude] = "latLngArray.length ? latLngArray[0].longitude : $any(null)"
       >
         <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
           <agm-overlay
@@ -63,11 +63,11 @@ export const template =
   </tr>
   <tr *ngIf="view==='data'">
     <td style="height:50%">
-      <textarea (change)="setLatLngArrayString($event.target.value)" style="width:100%;height:100%" wrap="on">{{ latLngArray | json }}</textArea>
+      <textarea #pointsData (change)="setLatLngArrayString(pointsData.value)" style="width:100%;height:100%" wrap="on">{{ latLngArray | json }}</textArea>
     </td>
     <td valign="top">
       <div><strong>Edit Marker</strong></div>
-      <select (change)="markerEdit=latLngArray[$event.target.value]" style="width:100%">
+      <select #markerSelect (change)="markerEdit=markerSelect.value === '' ? undefined : latLngArray[toNumber(markerSelect.value)]" style="width:100%">
         <option></option>
         <option *ngFor="let item of latLngArray;let i = index" [value]="i">
           Marker {{i}}
@@ -75,11 +75,11 @@ export const template =
       </select>
       <ng-container *ngIf="markerEdit">
         <div><strong>Latitude</strong></div>
-        <input type="number" [value]="markerEdit.latitude" (change)="markerEdit.latitude=toNumber($event.target.value)" style="width:100%"/>
+        <input #markerLatitude type="number" [value]="markerEdit.latitude" (change)="markerEdit.latitude=toNumber(markerLatitude.value)" style="width:100%"/>
         <div><strong>Longitude</strong></div>
-        <input type="number" [value]="markerEdit.longitude" (change)="markerEdit.longitude=toNumber($event.target.value)" style="width:100%"/>
+        <input #markerLongitude type="number" [value]="markerEdit.longitude" (change)="markerEdit.longitude=toNumber(markerLongitude.value)" style="width:100%"/>
         <div><strong>Title</strong></div>
-        <input type="text" [value]="markerEdit.title" (change)="markerEdit.title=$event.target.value" style="width:100%"/>
+        <input #markerTitle type="text" [value]="markerEdit.title" (change)="markerEdit.title=markerTitle.value" style="width:100%"/>
       </ng-container>
     </td>
   </tr>

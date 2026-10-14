@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core"
+import { NgModule, provideZoneChangeDetection } from "@angular/core"
 import { BrowserModule } from '@angular/platform-browser'
 import { AgmCoreModule } from "@grupo-san-cristobal/agm-core"
 import { AppComponent } from "./app.component"
@@ -17,6 +17,7 @@ import { AgmOverlays } from "../../src"
     }),
     AgmMarkerClustererModule
   ],
+  providers: [ provideZoneChangeDetection() ],
   bootstrap: [ AppComponent ],
   declarations: [ AppComponent ]
 }) export class AppModule{}

@@ -2,7 +2,7 @@ import { Subscription } from "rxjs"
 
 import {
   Input, Component, Output, EventEmitter,
-  TemplateRef, ViewChild, ElementRef, QueryList,
+  ViewChild, ElementRef, QueryList,
   ContentChildren
 } from "@angular/core"
 
@@ -31,6 +31,7 @@ export interface latLngPlus{
 
 @Component({
   selector:"agm-overlay",
+  standalone: false,
   template:'<div #content><div style="position:absolute"><ng-content></ng-content></div></div>'
 }) export class AgmOverlay{
   @Input() latitude!: number
@@ -38,7 +39,7 @@ export interface latLngPlus{
   
   @Input() visible: boolean = true
   @Input() zIndex: number = 1
-  @Input() bounds!: bounds
+  @Input() bounds?: bounds
   
   //TIP: Do NOT use this... Just put (click) on your html overlay element
   @Output() markerClick: EventEmitter<void> = new EventEmitter<void>()

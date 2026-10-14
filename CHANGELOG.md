@@ -1,6 +1,12 @@
 ## CHANGE LOG
 - All notable changes to this project will be documented here.
 
+## [2.0.0]
+- Upgrade the Delivery Solutions fork to Angular 22 and TypeScript 6 tooling.
+- Publish Angular Package Format output with partial compilation and explicit peer dependencies.
+- Preserve the NgModule-based overlay API and zone-based example behavior.
+- Document the upstream AGM Angular 15 peer dependency blocker and manual verification steps.
+
 ## [1.4.0] - 2019-05-15
 - trusting issue #29 about click marker problem
   - https://github.com/AckerApple/agm-overlays/issues/29
