@@ -6,9 +6,10 @@
     "rootDir": ".",
     "removeComments": true,
     "outDir": "../dist",
-    "target": "es2020",
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "useDefineForClassFields": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": false,
@@ -18,7 +19,7 @@
     "skipLibCheck": true,
     "stripInternal": true,
     "noUnusedParameters": false,
-    "lib": ["dom", "es2020"]
+    "lib": ["dom", "ES2022"]
   },
   "exclude": [
     "**/node_modules",
@@ -26,7 +27,6 @@
     "**/*.spec.ts"
   ],
   "angularCompilerOptions": {
-    "skipMetadataEmit" : false,
-    "skipTemplateCodegen" : true
+    "compilationMode": "partial"
   }
 }
